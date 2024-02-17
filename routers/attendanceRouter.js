@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const attendanceController = require("../controllers/attendanceController");
 
-router.post("/checkin", attendanceController.checkIn);
-router.post("/checkout", attendanceController.checkOut);
-router.post("/monthly-report", attendanceController.monthlyReport);
+router.get("/checkin", attendanceController.checkIn);
+router.get("/checkout", attendanceController.checkOut);
+router.get("/monthlyreport", attendanceController.monthlyReport);
 
 module.exports = router;
