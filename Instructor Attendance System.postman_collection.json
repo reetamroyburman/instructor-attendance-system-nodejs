@@ -1,0 +1,674 @@
+{
+	"info": {
+		"_postman_id": "1f95108e-2160-4716-b737-5002c753eab0",
+		"name": "Instructor Attendance System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "31314187"
+	},
+	"item": [
+		{
+			"name": "Signup/login",
+			"item": [
+				{
+					"name": "signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"testing\",\n    \"password\": \"testing\",\n    \"email\": \"testing@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/api/instructor/signup"
+					},
+					"response": [
+						{
+							"name": "success response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"testing\",\n    \"password\": \"testing\",\n    \"email\": \"testing@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/api/instructor/signup"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2c-Spt3zO42yM4qIau2PJmsM/qMnCE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 11:56:35 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"result\": \"instructor created successfully\"\n}"
+						},
+						{
+							"name": "error response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"testing\",\n    \"password\": \"testing\",\n    \"email\": \"testing@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/api/instructor/signup"
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "32"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"20-6C5B7NwLa7mhM5v0tn68/KKtuIU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 12:00:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "instructor is already registered"
+						}
+					]
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"testing\",\n    \"email\": \"testing@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:4000/api/instructor/login"
+					},
+					"response": [
+						{
+							"name": "success response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"testing\",\n    \"email\": \"testing@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/api/instructor/login"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "250"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fa-WBh4otwUaOhcbspEKaSOsGEJIt4\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 12:00:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDljYzQzNTgtMWNjMy00OTUzLWFjN2ItODhmZDA3YWE1N2IyIiwiaWF0IjoxNzA4MTcxMjU5LCJleHAiOjE3MDgyNTc2NTl9.rANqohyTiijwKBAQGD0ZoUgqgPWRnjl9zGsGSTEF8Ew\",\n    \"name\": \"testing\",\n    \"email\": \"testing@gmail.com\"\n}"
+						},
+						{
+							"name": "error response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"testing1\",\n    \"email\": \"testing@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://localhost:4000/api/instructor/login"
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "18"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"12-JAnJqYLwhnuqRSGF/l92zMSNEXs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 12:02:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Incorrect password"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Attendence",
+			"item": [
+				{
+					"name": "Check In",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDljYzQzNTgtMWNjMy00OTUzLWFjN2ItODhmZDA3YWE1N2IyIiwiaWF0IjoxNzA4MTcxNjkzLCJleHAiOjE3MDgyNTgwOTN9.p4d3Xck1OF69Mn8b4McaFCrYJVS-gwROSR6D0cEr4jw",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:4000/api/attendance/checkin"
+					},
+					"response": [
+						{
+							"name": "success response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDljYzQzNTgtMWNjMy00OTUzLWFjN2ItODhmZDA3YWE1N2IyIiwiaWF0IjoxNzA4MTcxNjkzLCJleHAiOjE3MDgyNTgwOTN9.p4d3Xck1OF69Mn8b4McaFCrYJVS-gwROSR6D0cEr4jw",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:4000/api/attendance/checkin"
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "216"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"d8-tZn/hMPPcsgfT74abFtKNgC9dFc\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 13:30:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Check-in recorded successfully\",\n    \"checkInData\": {\n        \"instructorId\": \"d9cc4358-1cc3-4953-ac7b-88fd07aa57b2\",\n        \"checkOutTime\": null,\n        \"_id\": \"65d0b5043636de9c016b528f\",\n        \"checkInTime\": \"2024-02-17T13:30:44.264Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDljYzQzNTgtMWNjMy00OTUzLWFjN2ItODhmZDA3YWE1N2IyIiwiaWF0IjoxNzA4MTcxNjkzLCJleHAiOjE3MDgyNTgwOTN9.p4d3Xck1OF69Mn8b4McaFCrYJVS-gwROSR6D0cEr4jw",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:4000/api/attendance/checkin"
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2b-sDTPDkG3D1c/lZhTL0T+WxY5FOU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 13:32:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"instructor already checked IN\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Check Out",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDljYzQzNTgtMWNjMy00OTUzLWFjN2ItODhmZDA3YWE1N2IyIiwiaWF0IjoxNzA4MTcxNjkzLCJleHAiOjE3MDgyNTgwOTN9.p4d3Xck1OF69Mn8b4McaFCrYJVS-gwROSR6D0cEr4jw",
+								"type": "text"
+							}
+						],
+						"url": "http://localhost:4000/api/attendance/checkout"
+					},
+					"response": [
+						{
+							"name": "success response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDljYzQzNTgtMWNjMy00OTUzLWFjN2ItODhmZDA3YWE1N2IyIiwiaWF0IjoxNzA4MTcxNjkzLCJleHAiOjE3MDgyNTgwOTN9.p4d3Xck1OF69Mn8b4McaFCrYJVS-gwROSR6D0cEr4jw",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:4000/api/attendance/checkout"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "232"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"e8-WWJ0jRBaKEqo9di4paDy6dS1Cls\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 12:19:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Check-out recorded successfully\",\n    \"data\": {\n        \"_id\": \"65d0a1dabae3978ee4f2c101\",\n        \"instructorId\": \"d9cc4358-1cc3-4953-ac7b-88fd07aa57b2\",\n        \"checkOutTime\": \"2024-02-17T12:19:02.754Z\",\n        \"checkInTime\": \"2024-02-17T12:08:58.441Z\",\n        \"__v\": 0\n    }\n}"
+						},
+						{
+							"name": "error response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZDljYzQzNTgtMWNjMy00OTUzLWFjN2ItODhmZDA3YWE1N2IyIiwiaWF0IjoxNzA4MTcxNjkzLCJleHAiOjE3MDgyNTgwOTN9.p4d3Xck1OF69Mn8b4McaFCrYJVS-gwROSR6D0cEr4jw",
+										"type": "text"
+									}
+								],
+								"url": "http://localhost:4000/api/attendance/checkout"
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "28"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1c-Mo+r+Dn7h4OCCKXS7p/d/YerLW0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 12:25:26 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"Record not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "montly-report",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzM5OWU1ZDktYzFiNC00NzA1LWIzYTItZjkwMjBlYjRjYzE1IiwiaWF0IjoxNzA4MTY2NzQxLCJleHAiOjE3MDgyNTMxNDF9.42v9G8RadWzuukVXsFanJK_xSvukTKlVgf44F56wmQs",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:4000/api/attendance/monthlyreport?month=02&year=2024",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"attendance",
+								"monthlyreport"
+							],
+							"query": [
+								{
+									"key": "month",
+									"value": "02"
+								},
+								{
+									"key": "year",
+									"value": "2024"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzM5OWU1ZDktYzFiNC00NzA1LWIzYTItZjkwMjBlYjRjYzE1IiwiaWF0IjoxNzA4MTY2NzQxLCJleHAiOjE3MDgyNTMxNDF9.42v9G8RadWzuukVXsFanJK_xSvukTKlVgf44F56wmQs",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4000/api/attendance/monthlyreport?month=02&year=2024",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"attendance",
+										"monthlyreport"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "02"
+										},
+										{
+											"key": "year",
+											"value": "2024"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3c-lH41/cr1nBn6DVQlc1k8FyWUUdM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 14:34:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"d9cc4358-1cc3-4953-ac7b-88fd07aa57b2\": 0.38000000000000006\n}"
+						},
+						{
+							"name": "error response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzM5OWU1ZDktYzFiNC00NzA1LWIzYTItZjkwMjBlYjRjYzE1IiwiaWF0IjoxNzA4MTY2NzQxLCJleHAiOjE3MDgyNTMxNDF9.42v9G8RadWzuukVXsFanJK_xSvukTKlVgf44F56wmQs",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:4000/api/attendance/monthlyreport?month=01&year=2024",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"api",
+										"attendance",
+										"monthlyreport"
+									],
+									"query": [
+										{
+											"key": "month",
+											"value": "01"
+										},
+										{
+											"key": "year",
+											"value": "2024"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "30"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1e-pIrjJ3AnrHOJVJTONM73zcJRSxQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 17 Feb 2024 14:35:24 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"There is no record\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}
