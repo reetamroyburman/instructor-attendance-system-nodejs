@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const instructorSchema = new mongoose.Schema({
+    user_id:{
+        type: String,
+        required: true,
+        unique: true
+    },
     email: {
         type: String,
         required: true,
@@ -28,6 +33,7 @@ const checkInOutSchema = new mongoose.Schema({
         type:String,
         required: true,
         unique: true,
+        ref:'user'
     },
     checkInOuts: [{
         checkInTime: {
@@ -43,7 +49,10 @@ const checkInOutSchema = new mongoose.Schema({
     }
 });
 
-const instructor = mongoose.model('user', instructorSchema);
+const instructorModel = mongoose.model('user', instructorSchema);
 const checkInOut = mongoose.model('checkInOutSchema', checkInOutSchema);
 
-module.exports = {instructor, checkInOut}
+module.exports = {
+    instructorModel, 
+    checkInOut
+}
