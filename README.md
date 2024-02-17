@@ -13,7 +13,7 @@
 
 
 # API documentation
-- Import the postman collection and add add the url in collection variable
+- Import the postman collection file: Instructor Attendance System.postman_collection.json and add add the url in collection variable
 
 
 # JWT token
