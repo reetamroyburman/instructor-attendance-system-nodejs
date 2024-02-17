@@ -1,7 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
-
+const middleware = require("./middleware");
 dotenv.config("./.env");
 const cookieParser = require("cookie-parser");
 const dbConnect = require("./dbConnect");
@@ -19,10 +19,7 @@ app.use(cookieParser());
 
 
 app.use("/api/instructor", instructorRouter);
-app.use("/api/attendance", attendanceRouter);
-
-// app.use("/posts", postsRouter);
-// app.use("/user", userRouter);
+app.use("/api/attendance", middleware, attendanceRouter);
 
 app.get("/", (req, res) => {
     res.status(200).send("OK from Server");
