@@ -32,20 +32,16 @@ const checkInOutSchema = new mongoose.Schema({
     instructorId: {
         type:String,
         required: true,
-        unique: true,
         ref:'user'
     },
-    checkInOuts: [{
-        checkInTime: {
-            type:Date,
-            required: true
-        },
-        checkOutTime: {
-            type:Date,
-        },
-    }],
-    workingHrs:{
-        type:String,
+    checkInTime: {
+        type: Date,
+        required: true,
+        default: Date.now
+    },
+    checkOutTime: {
+        type:Date,
+        default: null
     }
 });
 

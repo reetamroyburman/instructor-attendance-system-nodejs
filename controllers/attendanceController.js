@@ -1,7 +1,4 @@
 const {checkInOut} =require('../models/Schema')
-const { error, success } = require("../utils/responseWrapper");
-
-
 
 const checkIn = async (req, res) => {
     try {
@@ -11,7 +8,7 @@ const checkIn = async (req, res) => {
 
         if (instructor) {
             return  res.status(400).json({
-                message: 'Other instructor already checked IN',
+                message: 'instructor already checked IN',
             });
         }
 
@@ -65,18 +62,21 @@ const monthlyReport = async (req,res) => {
             'checkInTime': { $gte: startDate, $lte: endDate },
         });
 
-        var instructorReport = {}
+        if(!instructors.length > 0){
+            return res.status(400).json({ error: 'There is no record' });
+        }
+
+        let instructorReport = {}
 
         const monthlyReport = instructors.map(instructor => {
-            const hours = (instructor.checkOutTime - instructor.checkInTime) / (1000 * 60 * 60);
+            const hours = ((instructor.checkOutTime - instructor.checkInTime) / (1000 * 60 * 60)).toFixed(2);
+            
             if(instructorReport[instructor.instructorId] != null) {
-                instructorReport[instructor.instructorId] += hours;
+                instructorReport[instructor.instructorId] += parseFloat(hours);
             } else {
-                instructorReport[instructor.instructorId] = hours;
+                instructorReport[instructor.instructorId] = parseFloat(hours);
             }
         });
-
-        
 
         res.json(instructorReport);
 
